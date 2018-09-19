@@ -1,6 +1,14 @@
 # About
 This is some kind of skeleton to develop Spring Boot 2 mocroservices, secured with Oauth2 JWT faster.
-
+It contains such common things like:
+- Separate microservice API modules simplify testing and usage from 3rd party Java applications;
+- Strong modules structure allow reuse IoC container components and dependencies providing separate functionality (e.q JPA, search, NoSQL);
+- Timezone, Jackson serialization, mapping and separate environment settings;
+- Security resource server settings;
+- Custom user context handling, integrated with method security;
+- Communication between microservices; 
+- Oauth2 (JWT) based microservice...
+- Deploy...
 
 # Common
 
