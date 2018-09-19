@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.coopel</groupId>
+    <artifactId>coopel-backend</artifactId>
+    <version>0.0.1</version>
+    <modules>
+        <module>common</module>
+        <module>auth</module>
+        <module>common-jpa</module>
+        <module>auth-api</module>
+        <module>common-api</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>coopel-backend</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+
+        <javax.inject.version>1</javax.inject.version>
+        <dozer.version>6.2.0</dozer.version>
+        <jsr305.version>3.0.2</jsr305.version>
+        <commons-io.version>2.6</commons-io.version>
+        <guava.version>23.6.1-jre</guava.version>
+        <logstash-encoder.version>5.1</logstash-encoder.version>
+        <simple-java-mail.version>5.0.3</simple-java-mail.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.coopel</groupId>
+                <artifactId>common-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.coopel</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.coopel</groupId>
+                <artifactId>common-jpa</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.coopel</groupId>
+                <artifactId>auth-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--3rd party-->
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dozermapper</groupId>
+                <artifactId>dozer-core</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.simplejavamail</groupId>
+                <artifactId>simple-java-mail</artifactId>
+                <version>${simple-java-mail.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-encoder.version}</version>
+            </dependency>
+
+            <!--bom-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

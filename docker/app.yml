@@ -1,0 +1,25 @@
+version: '2'
+services:
+    myapp-app:
+        image: myapp
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://myapp-postgresql:5432/myApp
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+    myapp-postgresql:
+        extends:
+            file: postgresql.yml
+            service: myapp-postgresql
+    kafka:
+        extends:
+            file: kafka.yml
+            service: kafka
+        environment:
+            - KAFKA_ADVERTISED_HOST_NAME=kafka
+    zookeeper:
+        extends:
+            file: kafka.yml
+            service: zookeeper

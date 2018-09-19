@@ -1,0 +1,484 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="aleks (generated)" id="1536248965910-1">
+        <createSequence sequenceName="cooperative_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-2">
+        <createSequence sequenceName="cooperative_role_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-3">
+        <createSequence sequenceName="revinfo_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-4">
+        <createSequence sequenceName="role_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-5">
+        <createSequence sequenceName="user_cooperative_role_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-6">
+        <createSequence sequenceName="user_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-7">
+        <createSequence sequenceName="user_role_id_seq" startValue="1000"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-8">
+        <createTable tableName="auth_role">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(63)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-9">
+        <createTable tableName="auth_role_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(63)"/>
+            <column name="name_mod" type="BOOLEAN"/>
+            <column name="cooperative_roles_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-10">
+        <createTable tableName="auth_user">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(63)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email_confirm_tokens_not_before" type="BIGINT"/>
+            <column name="first_name" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="middle_name" type="VARCHAR(31)"/>
+            <column name="password" type="VARCHAR(127)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(15)"/>
+            <column name="tokens_not_before" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-11">
+        <createTable tableName="auth_user_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="email" type="VARCHAR(63)"/>
+            <column name="email_mod" type="BOOLEAN"/>
+            <column name="email_confirm_tokens_not_before" type="BIGINT"/>
+            <column name="email_confirm_tokens_not_before_mod" type="BOOLEAN"/>
+            <column name="first_name" type="VARCHAR(31)"/>
+            <column name="first_name_mod" type="BOOLEAN"/>
+            <column name="last_name" type="VARCHAR(31)"/>
+            <column name="last_name_mod" type="BOOLEAN"/>
+            <column name="middle_name" type="VARCHAR(31)"/>
+            <column name="middle_name_mod" type="BOOLEAN"/>
+            <column name="password" type="VARCHAR(127)"/>
+            <column name="password_mod" type="BOOLEAN"/>
+            <column name="phone" type="VARCHAR(15)"/>
+            <column name="phone_mod" type="BOOLEAN"/>
+            <column name="tokens_not_before" type="BIGINT"/>
+            <column name="tokens_not_before_mod" type="BOOLEAN"/>
+            <column name="user_cooperative_roles_mod" type="BOOLEAN"/>
+            <column name="user_roles_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-12">
+        <createTable tableName="cooperative">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remote_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-13">
+        <createTable tableName="cooperative_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="remote_id" type="INT"/>
+            <column name="remote_id_mod" type="BOOLEAN"/>
+            <column name="cooperative_roles_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-14">
+        <createTable tableName="cooperative_role">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cooperative_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-15">
+        <createTable tableName="cooperative_role_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="cooperative_id" type="INT"/>
+            <column name="cooperative_mod" type="BOOLEAN"/>
+            <column name="role_id" type="INT"/>
+            <column name="role_mod" type="BOOLEAN"/>
+            <column name="user_cooperative_roles_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-16">
+        <createTable tableName="revchanges">
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entityname" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-17">
+        <createTable tableName="revinfo">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timestamp" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-18">
+        <createTable tableName="user_cooperative_role">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cooperative_role_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-19">
+        <createTable tableName="user_cooperative_role_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="cooperative_role_id" type="INT"/>
+            <column name="cooperative_role_mod" type="BOOLEAN"/>
+            <column name="user_id" type="INT"/>
+            <column name="user_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-20">
+        <createTable tableName="user_role">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-21">
+        <createTable tableName="user_role_aud">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="revend" type="BIGINT"/>
+            <column name="revend_tstmp" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="archived" type="BOOLEAN"/>
+            <column name="archived_mod" type="BOOLEAN"/>
+            <column name="version" type="INT"/>
+            <column name="version_mod" type="BOOLEAN"/>
+            <column name="role_id" type="INT"/>
+            <column name="role_mod" type="BOOLEAN"/>
+            <column name="user_id" type="INT"/>
+            <column name="user_mod" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-22">
+        <addPrimaryKey columnNames="id, rev" constraintName="auth_role_aud_pkey" tableName="auth_role_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-23">
+        <addPrimaryKey columnNames="id" constraintName="auth_role_pkey" tableName="auth_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-24">
+        <addPrimaryKey columnNames="id, rev" constraintName="auth_user_aud_pkey" tableName="auth_user_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-25">
+        <addPrimaryKey columnNames="id" constraintName="auth_user_pkey" tableName="auth_user"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-26">
+        <addPrimaryKey columnNames="id, rev" constraintName="cooperative_aud_pkey" tableName="cooperative_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-27">
+        <addPrimaryKey columnNames="id" constraintName="cooperative_pkey" tableName="cooperative"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-28">
+        <addPrimaryKey columnNames="id, rev" constraintName="cooperative_role_aud_pkey"
+                       tableName="cooperative_role_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-29">
+        <addPrimaryKey columnNames="id" constraintName="cooperative_role_pkey" tableName="cooperative_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-30">
+        <addPrimaryKey columnNames="id" constraintName="revinfo_pkey" tableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-31">
+        <addPrimaryKey columnNames="id, rev" constraintName="user_cooperative_role_aud_pkey"
+                       tableName="user_cooperative_role_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-32">
+        <addPrimaryKey columnNames="id" constraintName="user_cooperative_role_pkey" tableName="user_cooperative_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-33">
+        <addPrimaryKey columnNames="id, rev" constraintName="user_role_aud_pkey" tableName="user_role_aud"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-34">
+        <addPrimaryKey columnNames="id" constraintName="user_role_pkey" tableName="user_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-35">
+        <addUniqueConstraint columnNames="user_id, role_id" constraintName="uk872xec3woupu3gw59b04pj3sa"
+                             tableName="user_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-36">
+        <addUniqueConstraint columnNames="email" constraintName="uk_klvc3dss72qnlrjp2bai055mw" tableName="auth_user"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-37">
+        <addUniqueConstraint columnNames="phone" constraintName="uk_ku77d0yw2eqklxynf8py22kx9" tableName="auth_user"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-38">
+        <addUniqueConstraint columnNames="name" constraintName="uk_lc1sij60969nsgl5cy8bfgbsm" tableName="auth_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-39">
+        <addUniqueConstraint columnNames="remote_id" constraintName="uk_q9v0508d0j5sgaonyd3476dsf"
+                             tableName="cooperative"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-40">
+        <addUniqueConstraint columnNames="cooperative_id, role_id" constraintName="ukcqb8aes8vv8sxi2vnhjheujpu"
+                             tableName="cooperative_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-41">
+        <addUniqueConstraint columnNames="user_id, cooperative_role_id" constraintName="ukjyhwy0f7wynwnj1hrlktlru4d"
+                             tableName="user_cooperative_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-42">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="user_role_aud"
+                                 constraintName="fk2ax4xks5sy1yh2a2gxdndkcmc" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-43">
+        <addForeignKeyConstraint baseColumnNames="cooperative_id" baseTableName="cooperative_role"
+                                 constraintName="fk2f224g65sux1xp962kdcy7hkl" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="cooperative"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-44">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="cooperative_aud"
+                                 constraintName="fk4xlxcimapvbycajdi72jvxjfy" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-45">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="cooperative_role_aud"
+                                 constraintName="fk56c3nolyr3620xt115wfb31w8" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-46">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="cooperative_aud"
+                                 constraintName="fk71egmxmui7rt5qbgn5il2vteo" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-47">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="revchanges"
+                                 constraintName="fk9m2hkxrk7o2k0n7tm5qx949s1" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-48">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_cooperative_role"
+                                 constraintName="fka84qo2eg4wtny7byc9cqjnvry" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="auth_user"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-49">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="user_cooperative_role_aud"
+                                 constraintName="fkcnvxj0xi0em7waergstj79oly" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-50">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="cooperative_role"
+                                 constraintName="fkf4548mo4d8pi7y2sjpru3317g" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="auth_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-51">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="user_cooperative_role_aud"
+                                 constraintName="fkf504oekiwjwdvx3xlnvjb5dv" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-52">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role"
+                                 constraintName="fkfn92hedcqd4ci9r6m3hvs55l4" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="auth_user"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-53">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="auth_role_aud"
+                                 constraintName="fkie5y8ai1j4v2ayxfqhp7mmyql" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-54">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="auth_user_aud"
+                                 constraintName="fkjs867330pe0a6vp0q21o2ggfx" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-55">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="cooperative_role_aud"
+                                 constraintName="fko081qu1nrdn582mo1tbeqbw8m" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-56">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="auth_role_aud"
+                                 constraintName="fkoyw8fc6mkri57orw2eocqxe0e" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-57">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role"
+                                 constraintName="fkqqlqhas35obkljn18mrh6mmms" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="auth_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-58">
+        <addForeignKeyConstraint baseColumnNames="cooperative_role_id" baseTableName="user_cooperative_role"
+                                 constraintName="fkrhl2cqgmgy743bb5kh0pomdms" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="cooperative_role"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-59">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="auth_user_aud"
+                                 constraintName="fks5r98c4w8d4c2m5mdos8nkykk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+    <changeSet author="aleks (generated)" id="1536248965910-60">
+        <addForeignKeyConstraint baseColumnNames="revend" baseTableName="user_role_aud"
+                                 constraintName="fkyxrr5l3w5vuhnsv9c7r3v8cr" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="revinfo"/>
+    </changeSet>
+</databaseChangeLog>

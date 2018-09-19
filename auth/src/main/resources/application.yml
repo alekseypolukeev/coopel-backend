@@ -1,0 +1,28 @@
+server:
+  port: 22022
+
+coopel:
+  auth:
+    keystore:
+      path: classpath:keystore.jks
+      secret: change_me
+      key-alias: coopel.com
+    email:
+      site-url: http://localhost:8080
+      password-recovery-path: /#/set-password
+      confirm-email-path: /#/email-confirm
+
+spring:
+  application:
+    name: auth
+  datasource:
+    name: pool-to-auth
+    username: auth_role
+    password: change_me
+    url: jdbc:postgresql://127.0.0.1:5432/auth
+    hikari:
+      connection-timeout: 30000 # 30 sec
+      idle-timeout: 1800000 # 30 min
+      max-lifetime: 43200000 # 12 hours
+      maximum-pool-size: 5
+      minimum-idle: 1

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOG_PATH" value="/var/log/coopel"/>
+    <property name="LOGSTASH_HOST" value="10.0.2.33"/>
+    <property name="LOGSTASH_PORT" value="5044"/>
+
+    <springProperty name="SERVICE_ID" source="common.service.id" />
+    <springProperty name="SERVICE_NAME" source="spring.application.name" />
+    <springProperty name="SERVICE_VERSION" source="common.service.version" />
+
+    <springProfile name="default">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <layout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg \(%thread, %logger{36}.%M:%line\) user_id=[%X{user_id}] http_status=[%X{http_status}]%n</pattern>
+            </layout>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+
+        <appender name="SAVE-TO-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/${SERVICE_NAME}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${SERVICE_NAME}_%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+                <maxFileSize>50MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+                <totalSizeCap>500MB</totalSizeCap>
+            </rollingPolicy>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg \(%thread, %logger{36}.%M:%line\) user_id=[%X{user_id}] http_status=[%X{http_status}]%n</pattern>
+            </encoder>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="SAVE-TO-FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="test">
+
+        <appender name="SAVE-TO-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/${SERVICE_NAME}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${SERVICE_NAME}_%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+                <maxFileSize>50MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+                <totalSizeCap>500MB</totalSizeCap>
+            </rollingPolicy>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg \(%thread, %logger{36}.%M:%line\) user_id=[%X{user_id}] http_status=[%X{http_status}]%n</pattern>
+            </encoder>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="SAVE-TO-FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <appender name="SAVE-TO-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/${SERVICE_NAME}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${SERVICE_NAME}_%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+                <maxFileSize>50MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+                <totalSizeCap>500MB</totalSizeCap>
+            </rollingPolicy>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg \(%thread, %logger{36}.%M:%line\) user_id=[%X{user_id}] http_status=[%X{http_status}]%n</pattern>
+            </encoder>
+        </appender>
+
+        <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>${LOGSTASH_HOST}:${LOGSTASH_PORT}</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+                <includeCallerData>true</includeCallerData>
+                <customFields>{"srv_id":"${SERVICE_ID}, "srv_n":"${SERVICE_NAME}", "srv_v":"${SERVICE_VERSION}"}</customFields>
+            </encoder>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="SAVE-TO-FILE"/>
+            <appender-ref ref="LOGSTASH"/>
+        </root>
+    </springProfile>
+
+</configuration>
