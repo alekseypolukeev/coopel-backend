@@ -2,13 +2,15 @@
 This is some kind of skeleton to develop Spring Boot 2 mocroservices, secured with Oauth2 JWT faster.
 It contains such common things like:
 - Separate microservice API modules simplify testing and usage from 3rd party Java applications;
-- Strong modules structure allow reuse IoC container components and dependencies providing separate functionality (e.q JPA, search, NoSQL);
+- Strong modules [structure](#structure) allow reuse IoC container components and dependencies providing separate functionality (e.q JPA, search, NoSQL);
 - Timezone, Jackson serialization, mapping and separate environment settings;
 - Security resource server settings;
 - Custom user context handling, integrated with method security;
 - Communication between microservices; 
-- Oauth2 (JWT) based microservice...
-- Deploy...
+- Oauth2 (JWT) Postgres based microservice with implemented user management, roles, email notifications, password recovery, account confirmation and session revoke process;
+- Deploy approach.
+
+Example of Vue.js frontend for this project can be found [here](https://github.com/alekseypolukeev/coopel-frontend).
 
 # Common
 
@@ -43,7 +45,7 @@ create database auth encoding=UTF8;
 GRANT ALL PRIVILEGES ON DATABASE auth TO auth_role;
 ```
 
-See `common-jpa` for datasource configuration details.
+See [common-jpa](#common-jpa) for datasource configuration details.
  
 ### Notification emails
 Need to be configured with frontend URL to build correct links.
