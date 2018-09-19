@@ -1,13 +1,18 @@
-# coopel-backend
+# About
+This is some kind of skeleton to develop Spring Boot 2 mocroservices, secured with Oauth2 JWT faster.
 
+
+# Common
+
+# Structure
+
+# Modules
 ## common-api
-
 ## common
-
 ## common-jpa
 
-## auth
-
+# Microservices
+## Auth
 ### Datasource configuration
 1. Start postgres in docker:
 ```
@@ -66,5 +71,3 @@ keytool -list -rfc --keystore /home/keystore.jks | openssl x509 -inform pem -pub
 ~~~
 curl http://localhost:22022/oauth/token_key
 ~~~
-
-
