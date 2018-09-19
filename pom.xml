@@ -31,7 +31,7 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 
         <javax.inject.version>1</javax.inject.version>
-        <dozer.version>6.2.0</dozer.version>
+        <dozer.version>6.4.1</dozer.version>
         <jsr305.version>3.0.2</jsr305.version>
         <commons-io.version>2.6</commons-io.version>
         <guava.version>23.6.1-jre</guava.version>
