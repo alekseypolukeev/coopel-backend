@@ -10,7 +10,10 @@ ADD entrypoint.sh entrypoint.sh
 RUN chmod 755 entrypoint.sh && chown coopel:coopel entrypoint.sh
 USER coopel
 
-ADD ../auth/target/auth-*.jar app.jar
+ADD auth.jar app.jar
+
+RUN mkdir -p config
+ADD application-dev.yml config/application-dev.yml
 
 ENTRYPOINT ["./entrypoint.sh"]
 
