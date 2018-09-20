@@ -1,15 +1,13 @@
 spring:
-  application:
-    name: auth
   datasource:
-    name: pool-to-auth
     username: auth_dev_role
     password: change_me
     url: jdbc:postgresql://coopel-dev.cubykmt3prm5.eu-central-1.rds.amazonaws.com:5432/auth_dev
 
-coopel:
-  auth:
-    email:
-      site-url: http://coopel.ru
+coopel.auth.email.site-url: http://coopel.ru
 
 security.oauth2.resource.jwt.key-uri: http://api.coopel.ru/oauth/token_key
+
+spring.mail:
+  username: noreply.coople@gmail.com
+  password: Zj0@Kid?PnbT[k<o
