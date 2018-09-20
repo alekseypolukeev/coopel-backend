@@ -36,8 +36,15 @@
             </encoder>
         </appender>
 
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <layout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg \(%thread, %logger{36}.%M:%line\) user_id=[%X{user_id}] http_status=[%X{http_status}]%n</pattern>
+            </layout>
+        </appender>
+
         <root level="info">
             <appender-ref ref="SAVE-TO-FILE"/>
+            <appender-ref ref="STDOUT"/>
         </root>
     </springProfile>
 
