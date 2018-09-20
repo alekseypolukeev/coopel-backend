@@ -1,28 +1,33 @@
 # About
-This is some kind of skeleton to develop Spring Boot 2 mocroservices, secured with Oauth2 JWT faster.
+This is some kind of skeleton to develop Spring Boot 2 microservices cluster, secured with Oauth2 JWT faster.
 It contains such common things like:
 - Separate microservice API modules simplify testing and usage from 3rd party Java applications;
-- Strong modules [structure](#structure) allow reuse IoC container components and dependencies providing separate functionality (e.q JPA, search, NoSQL);
+- Strong modules [structure](#structure) allow reuse IoC container components and dependencies providing separate functionality (e.q JPA, search, NoSQL, messaging, reactive);
 - Timezone, Jackson serialization, mapping and separate environment settings;
 - Security resource server settings;
 - Custom user context handling, integrated with method security;
 - Communication between microservices; 
 - Oauth2 (JWT) Postgres based microservice with implemented user management, roles, email notifications, password recovery, account confirmation and session revoke process;
+- Migration, including self and all cluster migration; 
 - Deploy approach.
 
 Example of Vue.js frontend for this project can be found [here](https://github.com/alekseypolukeev/coopel-frontend).
 
 # Common
-
-# Structure
-
-# Modules
-## common-api
-## common
-## common-jpa
+TBD
+## Structure
+TBD
+### common-api
+TBD
+### common
+TBD
+### common-jpa
+TBD
 
 # Microservices
+TBD
 ## Auth
+TBD
 ### Datasource configuration
 1. Start postgres in docker:
 ```
@@ -81,3 +86,8 @@ keytool -list -rfc --keystore /home/keystore.jks | openssl x509 -inform pem -pub
 ~~~
 curl http://localhost:22022/oauth/token_key
 ~~~
+
+# Roadmap
+- cluster migration microservice
+- horizontal scalability for jpa
+- use istio
