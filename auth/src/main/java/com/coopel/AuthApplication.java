@@ -20,7 +20,7 @@ public class AuthApplication {
     }
 
     // TODo rework with migration microservice
-    @Bean
+    //@Bean
     public CommandLineRunner commandLineRunner(PasswordEncoder passwordEncoder, UserRepository userRepository, RoleRepository roleRepository, UserRoleRepository userRoleRepository, CooperativeRepository cooperativeRepository, CooperativeRoleRepository cooperativeRoleRepository, UserCooperativeRoleRepository userCooperativeRoleRepository) {
         return new CommandLineRunner() {
 
