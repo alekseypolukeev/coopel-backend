@@ -55,26 +55,26 @@ public class AuthorizationServerConfigurerAdapterImpl extends AuthorizationServe
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("frontend")
-                .secret("{bcrypt}$2a$10$sR1LSUYhf/e3tllZGXfwvesj2QjrIPgxVv4pDYUiYdKovYm9zQtjO")
+                .secret(passwordEncoder.encode("change_me"))
                 .authorizedGrantTypes("refresh_token", "password")
                 .resourceIds("auth")
                 .scopes("create", "get", "update", "delete", "do")
-                .accessTokenValiditySeconds(60)
-                .refreshTokenValiditySeconds(2 * 60 * 60)
+                .accessTokenValiditySeconds(30 * 60)
+                .refreshTokenValiditySeconds(30 * 24 * 60 * 60)
 
                 .and()
                 .withClient(CONFIRM_EMAIL_CLIENT_ID)
                 .secret("{none}" + UUID.randomUUID())
                 .resourceIds(AUTH_SERVICE_RESOURCE_ID)
                 .scopes(CONFIRM_EMAIL_SCOPE)
-                .accessTokenValiditySeconds(86400)
+                .accessTokenValiditySeconds(24 * 60 * 60)
 
                 .and()
                 .withClient(PASSWORD_RECOVERY_CLIENT_ID)
                 .secret("{none}" + UUID.randomUUID())
                 .resourceIds(AUTH_SERVICE_RESOURCE_ID)
                 .scopes(PASSWORD_RECOVERY_SCOPE)
-                .accessTokenValiditySeconds(86400);
+                .accessTokenValiditySeconds(24 * 60 * 60);
     }
 
     @Override
