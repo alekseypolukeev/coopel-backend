@@ -3,7 +3,7 @@ package com.coopel.jpa.service.dto;
 import com.coopel.common.exception.EntityNotFoundServiceException;
 import com.coopel.jpa.model.CommonEntity;
 import com.coopel.jpa.service.bl.AbstractService;
-import org.dozer.Mapper;
+import com.github.dozermapper.core.Mapper;
 
 import javax.annotation.Nullable;
 

@@ -1,8 +1,8 @@
 package com.coopel.common.config;
 
-import org.dozer.DozerBeanMapperBuilder;
-import org.dozer.Mapper;
-import org.dozer.loader.api.BeanMappingBuilder;
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
+import com.github.dozermapper.core.loader.api.BeanMappingBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
