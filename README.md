@@ -11,7 +11,12 @@ It contains such common things like:
 - Migration, including self and all cluster migration; 
 - Deploy approach.
 
-Example of Vue.js frontend for this project can be found [here](https://github.com/alekseypolukeev/coopel-frontend).
+# Live demo
+Deployed in AWS:
+- Backend - [http://api.coopel.ru](http://api.coopel.ru)
+- Frontend - [http://coopel.ru](http://coopel.ru)
+
+Example of Vue.js frontend for this project can be found in [this](https://github.com/alekseypolukeev/coopel-frontend) repository.
 
 # Common
 TBD
