@@ -34,7 +34,7 @@
         <dozer.version>6.4.1</dozer.version>
         <jsr305.version>3.0.2</jsr305.version>
         <commons-io.version>2.6</commons-io.version>
-        <guava.version>26.0-jre</guava.version>
+        <guava.version>27.1-jre</guava.version>
         <logstash-encoder.version>5.2</logstash-encoder.version>
     </properties>
 
