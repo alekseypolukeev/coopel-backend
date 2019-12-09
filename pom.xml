@@ -35,7 +35,7 @@
         <jsr305.version>3.0.2</jsr305.version>
         <commons-io.version>2.6</commons-io.version>
         <guava.version>26.0-jre</guava.version>
-        <logstash-encoder.version>5.2</logstash-encoder.version>
+        <logstash-encoder.version>6.3</logstash-encoder.version>
     </properties>
 
     <dependencyManagement>
